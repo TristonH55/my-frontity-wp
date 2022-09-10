@@ -14,9 +14,8 @@ const Nav = ({ state }) => (
       // Check if the link matched the current page url
       const data = state.source.get(state.router.link);
       const isCurrentPage = data.route === link;
-      const items = state.source.get('/menu/mega-main-menu/').items;
-      // console.log('items')
-      
+      const items = state.source.get('/menu/${state.theme.menuUrl}/').items;
+      // console.log('ITEMS:',items)      
       return (
         <NavItem key={name}>
           {/* If link url is the current page, add `aria-current` for a11y */}
@@ -37,7 +36,7 @@ const Nav = ({ state }) => (
  */
 
 // const Nav = ({ state }) => {
-//   const items = state.source.get('/menu/mega-main-menu/').items;
+//   const items = state.source.get(`/menu/${state.theme.menuUrl}`).items;
 //   // console.log('ITEMS:',items)
 //   return (
 //     <NavContainer>

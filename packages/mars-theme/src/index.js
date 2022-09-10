@@ -2,7 +2,7 @@ import Theme from "./components";
 import image from "@frontity/html2react/processors/image";
 import iframe from "@frontity/html2react/processors/iframe";
 import link from "@frontity/html2react/processors/link";
-import menuHandler from "./components/handlers/menu-handler.js";
+import menuHandler from "./components/handlers/menu-handler";
 const marsTheme = {
   name: "@frontity/mars-theme",
   roots: {
@@ -23,8 +23,8 @@ const marsTheme = {
       menuUrl: "mega-main-menu",
       isMobileMenuOpen: false,
       featured: {
-        showOnList: false,
-        showOnPost: false,
+        showOnList: true,
+        showOnPost: true,
       },
     },
   },
@@ -43,7 +43,7 @@ const marsTheme = {
         state.theme.isMobileMenuOpen = false;
       },
       beforeSSR: async ({ state, actions }) => {
-        await actions.source.fetch('/menu/mega-main-menu/');
+        await actions.source.fetch('/menu/${state.theme.menuUrl}/');
       },
     },
   },
