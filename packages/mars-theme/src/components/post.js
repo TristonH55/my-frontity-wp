@@ -33,6 +33,8 @@ const Post = ({ state, actions, libraries }) => {
   // Get a human readable date.
   const date = new Date(post.date);
 
+  console.log("DATA", post);
+
   // Get the html2react component.
   const Html2React = libraries.html2react.Component;
 

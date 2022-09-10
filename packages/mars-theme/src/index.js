@@ -2,7 +2,7 @@ import Theme from "./components";
 import image from "@frontity/html2react/processors/image";
 import iframe from "@frontity/html2react/processors/iframe";
 import link from "@frontity/html2react/processors/link";
-
+import menuHandler from "./components/handlers/menu-handler.js";
 const marsTheme = {
   name: "@frontity/mars-theme",
   roots: {
@@ -20,6 +20,7 @@ const marsTheme = {
     theme: {
       autoPrefetch: "in-view",
       menu: [],
+      menuUrl: "mega-main-menu",
       isMobileMenuOpen: false,
       featured: {
         showOnList: false,
@@ -32,6 +33,7 @@ const marsTheme = {
    * Actions are functions that modify the state or deal with other parts of
    * Frontity like libraries.
    */
+
   actions: {
     theme: {
       toggleMobileMenu: ({ state }) => {
@@ -39,6 +41,9 @@ const marsTheme = {
       },
       closeMobileMenu: ({ state }) => {
         state.theme.isMobileMenuOpen = false;
+      },
+      beforeSSR: async ({ state, actions }) => {
+        await actions.source.fetch('/menu/mega-main-menu/');
       },
     },
   },
@@ -50,6 +55,9 @@ const marsTheme = {
        * You can add your own processors too.
        */
       processors: [image, iframe, link],
+    },
+    sourse: {
+      handlers: [menuHandler],
     },
   },
 };

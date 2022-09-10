@@ -2,9 +2,9 @@ const settings = {
   "name": "my-first-frontity-project",
   "state": {
     "frontity": {
-      "url": "https://test.frontity.org",
-      "title": "Test Frontity Blog",
-      "description": "WordPress installation for Frontity development"
+      "url": "http://oopdesign.com.au",
+      "title": "Test Blog",
+      "description": "WordPress installation for React development"
     }
   },
   "packages": [
@@ -35,8 +35,8 @@ const settings = {
             ]
           ],
           "featured": {
-            "showOnList": false,
-            "showOnPost": false
+            "showOnList": true,
+            "showOnPost": true
           }
         }
       }
@@ -45,7 +45,8 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "https://test.frontity.org"
+          "url": "http://oopdesign.com.au/",
+          "apiUrl": "http://oopdesign.com.au/wp-json"
         }
       }
     },
